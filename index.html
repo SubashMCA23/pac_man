@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" style="height:500px; width:1000px; position:relative; "></div>
+
+<script>
+    var arr=[["PacMan1.png","PacMan2.png"],["PacMan3.png","PacMan4.png"]]
+    var img = document.createElement("img")
+    document.getElementById("box").appendChild(img)
+    var position=0;
+    var flag=0;
+    var direction=0;
+
+    function moving(){
+        img.src=arr[direction][flag]
+
+        if(direction===0){
+            position += 100
+        }
+        else{
+            position -= 100
+        }
+        
+        if(position>1000 || position<0){
+            direction= 1-direction
+        }
+    
+
+        flag= 1-flag
+        img.style.left=position+"px"
+        img.style.width="100px"
+        img.style.height="100px"
+        img.style.position="absolute"
+    }
+    setInterval(moving,300)
+</script>    
+</body>
+</html>
